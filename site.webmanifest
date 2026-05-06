@@ -1,0 +1,8 @@
+{
+  "name": "Taylor In Socials",
+  "short_name": "Taylor Socials",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f0e7",
+  "theme_color": "#f7f0e7"
+}
