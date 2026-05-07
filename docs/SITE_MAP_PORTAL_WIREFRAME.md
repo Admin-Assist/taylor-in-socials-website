@@ -1,5 +1,7 @@
 # Taylor In Socials Site Map + Portal Wireframe Plan
 
+Planning archive note: the current launch build is a static HTML/CSS/JS website with email-draft audit/contact forms and a clearly labelled portal preview. The sections below describe the wider product direction for later upgrades, not a claim that secure portal, booking, CRM, or database features are live today.
+
 ## Product Shape
 
 Taylor In Socials should be built as two connected experiences:
@@ -105,14 +107,14 @@ Sections:
 1. Header
    - Logo left.
    - Public navigation.
-   - Primary CTA: "Book Free Audit".
+   - Primary CTA: "Request your free audit".
    - Secondary entry: "Client Login".
 
 2. Hero
    - Brand-forward visual treatment.
    - H1: "Taylor In Socials".
    - Supporting copy: premium social media and web reach support for businesses that need consistent visibility without the daily workload.
-   - Primary CTA: "Book your free social + web reach audit".
+   - Primary CTA: "Request your free presence audit".
    - Secondary CTA: "Explore services".
    - Visual: logo-led editorial image, founder/content desk shot, or tasteful brand composition.
 
@@ -666,10 +668,10 @@ Credential handling:
 
 Free audit path:
 
-1. Visitor clicks "Book your free social + web reach audit".
+1. Visitor clicks "Request your free presence audit".
 2. Visitor lands on `/free-audit`.
 3. Visitor reviews what is included.
-4. Visitor books through embedded calendar.
+4. Visitor submits the static audit request form, or later books through an embedded calendar when that upgrade is added.
 5. Booking form collects:
    - Name.
    - Email.
@@ -687,7 +689,7 @@ Free audit path:
 
 - Confirm sitemap.
 - Confirm brand assets.
-- Draft final page copy placeholders.
+- Confirm final launch copy.
 - Define portal roles and data model.
 - Choose technical stack.
 
@@ -702,7 +704,7 @@ Free audit path:
 - Build FAQ.
 - Build Free Audit.
 - Build Contact.
-- Build Privacy and Terms placeholders.
+- Build Privacy and Terms launch pages.
 
 ### Phase 3: Booking Integration
 
@@ -745,9 +747,8 @@ The first build slice should include:
 - Public layout system.
 - Home page.
 - Services page.
-- Free audit page with booking embed placeholder.
+- Free audit page with static email-draft form.
 - Login page shell.
 - Protected dashboard shell with sample data.
 
 This gives the business a high-quality public presence quickly while proving the portal direction early enough to avoid rebuilding the structure later.
-

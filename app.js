@@ -41,7 +41,7 @@ const pageMeta = {
   ],
   results: [
     "Results | Taylor In Socials",
-    "Hospitality-style content examples covering local reach, offers, events, short-form content, and content consistency."
+    "Hospitality portfolio examples covering content planning, local visibility, offers, events, short-form content, and content consistency."
   ],
   about: [
     "About | Taylor In Socials",
@@ -271,7 +271,7 @@ function renderDashboard() {
     <div class="portal-grid">
       <article class="portal-card metric-box">
         <span>Content planned</span>
-        <strong>18</strong>
+        <strong>Mapped</strong>
         <p>Brand content, short-form content, stories, offers, and event promos planned for this month.</p>
       </article>
       <article class="portal-card metric-box">
@@ -417,8 +417,8 @@ function renderReports() {
   return `
     <div class="portal-grid">
       <article class="portal-card full">
-        <h3>May Growth Insights</h3>
-        <p>Reach rose because short-form content showed the venue atmosphere, food, drinks, and weekend offers more clearly. Next month should keep offers simple and publish event details earlier.</p>
+        <h3>May Report Preview</h3>
+        <p>In a real report, Taylor In Socials would summarise what supported venue visibility, which offers were promoted, and what should be planned earlier next month.</p>
       </article>
       ${reports.map((report) => `
         <article class="portal-card">
@@ -428,11 +428,11 @@ function renderReports() {
         </article>
       `).join("")}
       <article class="portal-card full">
-        <h3>Best-performing content</h3>
+        <h3>Example content notes</h3>
         <div class="table">
-          <div class="table-row header"><span>Post</span><span>Channel</span><span>Result</span><span>Why it worked</span></div>
-          <div class="table-row"><strong>Summer menu video</strong><span>Short-form content</span><span>Most saves</span><span>Clear food visuals and simple caption</span></div>
-          <div class="table-row"><strong>Friday drinks offer</strong><span>Social + local search</span><span>Most profile actions</span><span>Easy offer and strong local timing</span></div>
+          <div class="table-row header"><span>Content</span><span>Channel</span><span>Focus</span><span>Why it matters</span></div>
+          <div class="table-row"><strong>Summer menu video</strong><span>Short-form content</span><span>Menu launch</span><span>Clear food visuals and simple booking prompt</span></div>
+          <div class="table-row"><strong>Friday drinks offer</strong><span>Social + local search</span><span>Quieter weekday</span><span>Easy offer and strong local timing</span></div>
         </div>
       </article>
     </div>

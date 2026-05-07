@@ -29,14 +29,14 @@ Why it fits:
    - Mobile header menu
    - Free audit form
    - Contact form
-   - Client portal demo login
+   - Client portal preview login
 
 ## Important Pre-Launch Decisions
 
 - Forms: this static launch opens an email draft to `taylorkinsella@taylorinsocials.com`. For a more polished production flow, connect a form provider or a Vercel serverless function.
-- Booking: replace the audit slot buttons with Calendly, TidyCal, Cal.com, or a direct booking embed when the real calendar is ready.
+- Booking: the audit time buttons are preferred time requests only. Replace them with Calendly, TidyCal, Cal.com, or a direct booking embed when the real calendar is ready.
 - Legal: the Privacy and Terms pages now contain baseline launch copy, but they should be reviewed before paid campaigns or client onboarding.
-- Portal: the client portal is still a front-end preview. Real client use needs authentication, workspace-level permissions, secure credential handling, and a database.
+- Portal: the client portal is still a clearly labelled front-end preview. Real client use needs authentication, workspace-level permissions, secure credential handling, and a database.
 
 ## Suggested Next Upgrade Order
 

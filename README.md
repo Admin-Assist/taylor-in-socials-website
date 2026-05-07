@@ -1,6 +1,6 @@
-# Taylor In Socials Website + Client Portal Launch Build
+# Taylor In Socials Static Launch Build
 
-This is a dependency-free static launch build for the Taylor In Socials public website, with a front-end client portal preview.
+This is a dependency-free static launch build for the Taylor In Socials public website, with a clearly labelled front-end client portal preview.
 
 ## Open Locally
 
@@ -16,24 +16,16 @@ Open `index.html` in a browser.
 
 ## Included
 
-- Premium public marketing website.
+- Premium hospitality-focused public website.
 - Home, Services, Results, About, FAQ, Free Audit, Contact, Privacy, and Terms pages.
-- Free audit request form that opens an email draft.
-- Client login prototype.
-- Client portal dashboard.
-- Content plan module.
-- Approvals and comments module.
-- Linked accounts module.
-- Secure credentials workflow placeholder.
-- Reports and growth insights module.
-- Billing / retainer status module.
-- Settings module.
+- Free audit and contact forms that open organised email drafts to `taylorkinsella@taylorinsocials.com`.
+- Client portal preview with demo dashboard, content plan, approvals, linked accounts, credential-request status, reports, billing notes, and settings.
 
 ## Demo Portal Login
 
-The demo login form is pre-filled:
+The preview login form is pre-filled:
 
 - Email: `client@taylorinsocials.com`
 - Password: `demoportal`
 
-This is a front-end prototype only. Production should add real authentication, server-side authorization, workspace-level data isolation, secure credential handling, and integrated booking/payment tools.
+This is a front-end preview only. Production client use needs real authentication, server-side authorization, workspace-level data isolation, secure credential handling, and integrated booking/payment tools.
