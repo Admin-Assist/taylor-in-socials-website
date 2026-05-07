@@ -157,10 +157,10 @@ const contentItems = [
 const contactEmail = "taylorkinsella@taylorinsocials.com";
 
 const reports = [
-  ["Local reach", "+34%", "Best lift came from short-form content showing dishes, drinks, and atmosphere."],
-  ["Engagement", "+21%", "Comments and saves increased around offers and event posts."],
-  ["Offer interest", "+22%", "Story links and profile actions rose after clearer weekend promos."],
-  ["Reviews prompted", "12", "Review reminders were added after positive customer moments."]
+  ["Local visibility", "Clearer", "Short-form content shows dishes, drinks, and atmosphere more consistently."],
+  ["Engagement", "Focused", "Offer and event posts are easier for customers to understand and act on."],
+  ["Offer interest", "Tracked", "Weekend promo links and profile actions are reviewed in plain English."],
+  ["Reviews prompted", "Active", "Review reminders are planned around positive customer moments."]
 ];
 
 const projectMessages = [
@@ -286,8 +286,8 @@ function renderDashboard() {
       </article>
       <article class="portal-card metric-box">
         <span>Offer interest</span>
-        <strong>+22%</strong>
-        <p>More people clicked, replied, or took action on recent venue offers.</p>
+        <strong>Tracked</strong>
+        <p>Recent venue offers are reviewed for clicks, replies, and customer actions in the real setup.</p>
       </article>
       <article class="portal-card wide">
         <h3>What needs attention</h3>
