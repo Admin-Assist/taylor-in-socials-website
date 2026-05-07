@@ -510,11 +510,80 @@ function updateContentStatus(index, status) {
   setPortalMessage(`${item.title} marked as ${status.toLowerCase()}.`);
 }
 
-function formatFormEntries(form) {
-  return [...new FormData(form).entries()]
-    .filter(([, value]) => String(value).trim())
-    .map(([key, value]) => `${key}: ${value}`)
+const formFieldLabels = {
+  name: "Name",
+  businessName: "Business name",
+  businessType: "Business type",
+  preferredContactMethod: "Preferred contact method",
+  contactDetail: "Contact detail",
+  websiteOrSocialLink: "Website or social link",
+  helpNeeded: "What they want help with",
+  preferredAuditTime: "Preferred audit time",
+  alternativeAuditTime: "Alternative audit time",
+  email: "Email",
+  enquiryType: "Enquiry type",
+  message: "Message"
+};
+
+function getFormValues(form) {
+  return [...new FormData(form).entries()].reduce((values, [key, value]) => {
+    const cleanValue = String(value).trim();
+    if (cleanValue) values[key] = cleanValue;
+    return values;
+  }, {});
+}
+
+function formatFormSection(values, fieldOrder) {
+  return fieldOrder
+    .map((key) => {
+      const value = values[key];
+      if (!value) return "";
+      return `${formFieldLabels[key] || key}: ${value}`;
+    })
+    .filter(Boolean)
     .join("\n");
+}
+
+function buildAuditEmail(form) {
+  const values = getFormValues(form);
+  const fieldOrder = [
+    "name",
+    "businessName",
+    "businessType",
+    "preferredContactMethod",
+    "contactDetail",
+    "websiteOrSocialLink",
+    "helpNeeded",
+    "preferredAuditTime",
+    "alternativeAuditTime"
+  ];
+
+  return [
+    "New Taylor In Socials free audit request",
+    "",
+    "A venue or local business has requested a no-pressure digital presence audit.",
+    "",
+    formatFormSection(values, fieldOrder),
+    "",
+    "Suggested reply:",
+    "Thank them, confirm the best audit time, review their public links, and send practical recommendations for content, venue promotion, online visibility, and web/social presence."
+  ].join("\n");
+}
+
+function buildContactEmail(form) {
+  const values = getFormValues(form);
+  const fieldOrder = ["name", "email", "businessName", "enquiryType", "message"];
+
+  return [
+    "New Taylor In Socials website enquiry",
+    "",
+    "A potential client has sent a general enquiry from the website.",
+    "",
+    formatFormSection(values, fieldOrder),
+    "",
+    "Suggested reply:",
+    "Reply personally with the clearest next step: answer their question, suggest the free audit, or recommend the most suitable support package."
+  ].join("\n");
 }
 
 function openEmailDraft(subject, body) {
@@ -538,9 +607,11 @@ function bindForms() {
 
   document.querySelector("#auditForm").addEventListener("submit", (event) => {
     event.preventDefault();
-    const body = `New Taylor In Socials audit request\n\n${formatFormEntries(event.currentTarget)}`;
-    openEmailDraft("Free digital presence audit request", body);
-    document.querySelector("#auditMessage").textContent = "Your email draft has opened. Send it to request your preferred audit time.";
+    // Future upgrade point: replace this mailto handoff with a form provider,
+    // Vercel Function, CRM, or booking workflow when the site is ready for it.
+    const body = buildAuditEmail(event.currentTarget);
+    openEmailDraft("Taylor In Socials free audit request", body);
+    document.querySelector("#auditMessage").textContent = "Your email draft has opened. If nothing appeared, please email Taylor directly at taylorkinsella@taylorinsocials.com.";
     event.currentTarget.reset();
     selectedAuditSlot = "";
     auditSlotInput.value = "";
@@ -552,9 +623,11 @@ function bindForms() {
 
   document.querySelector("#contactForm").addEventListener("submit", (event) => {
     event.preventDefault();
-    const body = `New Taylor In Socials website enquiry\n\n${formatFormEntries(event.currentTarget)}`;
-    openEmailDraft("Website enquiry for Taylor In Socials", body);
-    document.querySelector("#contactMessage").textContent = "Your email draft has opened. Send it and Taylor In Socials can reply with next steps.";
+    // Future upgrade point: send this to a real form endpoint or CRM rather
+    // than opening an email draft once Taylor In Socials is ready to automate.
+    const body = buildContactEmail(event.currentTarget);
+    openEmailDraft("Taylor In Socials website enquiry", body);
+    document.querySelector("#contactMessage").textContent = "Your email draft has opened. If nothing appeared, please email Taylor directly at taylorkinsella@taylorinsocials.com.";
     event.currentTarget.reset();
   });
 

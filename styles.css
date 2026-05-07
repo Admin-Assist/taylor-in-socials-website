@@ -26,10 +26,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background:
     linear-gradient(180deg, #fbf5ee 0%, var(--cream) 42%, #f4e9e4 100%);
   color: var(--charcoal);
@@ -62,14 +64,17 @@ a {
 
 button,
 input,
-textarea {
+textarea,
+select {
   font: inherit;
+  max-width: 100%;
 }
 
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
-textarea:focus-visible {
+textarea:focus-visible,
+select:focus-visible {
   outline: 3px solid rgba(201, 137, 131, 0.45);
   outline-offset: 3px;
 }
@@ -979,6 +984,11 @@ p {
   margin: 84px 0;
 }
 
+.audit-layout > *,
+.contact-layout > * {
+  min-width: 0;
+}
+
 .text-stack {
   display: grid;
   gap: 20px;
@@ -1575,7 +1585,49 @@ p {
 .booking-form {
   display: grid;
   gap: 16px;
+  min-width: 0;
   box-shadow: var(--shadow);
+}
+
+.form-intro {
+  margin-top: -4px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.slot-fieldset {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  background: rgba(246, 239, 232, 0.58);
+}
+
+.slot-fieldset legend {
+  padding: 0 8px;
+  color: var(--rose-deep);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.slot-fieldset p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .slot-preview {
@@ -1652,6 +1704,7 @@ p {
   width: fit-content;
   border-bottom: 1px solid rgba(117, 106, 100, 0.36);
   font-weight: 800;
+  overflow-wrap: anywhere;
 }
 
 .audit-photo-card {
@@ -1682,7 +1735,8 @@ label {
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 100%;
   border: 1px solid var(--line);
   background: #fffdf9;
@@ -1692,10 +1746,36 @@ textarea {
   outline: none;
 }
 
+textarea {
+  resize: vertical;
+}
+
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
   border-color: var(--blush);
   box-shadow: 0 0 0 3px rgba(201, 137, 131, 0.16);
+}
+
+.form-next-step {
+  display: grid;
+  gap: 4px;
+  padding: 14px;
+  background: rgba(246, 239, 232, 0.62);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.form-next-step strong {
+  color: var(--rose-deep);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.form-next-step span {
+  color: var(--muted);
+  font-size: 14px;
 }
 
 .form-note {
@@ -2183,6 +2263,7 @@ textarea:focus {
   .campaign-board,
   .service-grid,
   .feature-list,
+  .form-grid,
   .tier-grid,
   .metric-grid,
   .process-list,

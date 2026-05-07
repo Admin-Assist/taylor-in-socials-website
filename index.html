@@ -251,7 +251,7 @@
             <h2>Request your free presence audit.</h2>
             <p>Send your links and Taylor In Socials will review where your digital presence could work harder, from content and offers to local visibility and website clarity. No pressure, just useful direction.</p>
           </div>
-          <a class="button" href="#audit">Request Free Audit</a>
+          <a class="button" href="#audit">Request your free audit</a>
         </section>
       </section>
 
@@ -260,7 +260,7 @@
           <p class="eyebrow">Services</p>
           <h1>Hospitality content and digital presence support for restaurants, bars, cafés, pubs, and local venues.</h1>
           <p>Hospitality is the main focus: regular content management, short-form content, local search visibility, website updates, offers, menus, events, and local engagement. Taylor In Socials can also support other local businesses that need a consistent online presence.</p>
-          <a class="button" href="#audit">Book Free Audit</a>
+          <a class="button" href="#audit">Request your free audit</a>
         </div>
         <div class="feature-list">
           <article>
@@ -541,19 +541,45 @@
           </div>
           <form class="booking-form" id="auditForm">
             <h2>Request your free audit</h2>
-            <div class="slot-preview" aria-label="Preferred audit time options">
-              <button type="button" data-slot="Tue 10:00">Tue 10:00</button>
-              <button type="button" data-slot="Wed 13:30">Wed 13:30</button>
-              <button type="button" data-slot="Fri 09:30">Fri 09:30</button>
+            <p class="form-intro">Share the useful details once and Taylor will reply with a clear, no-pressure review of your digital presence.</p>
+            <div class="form-grid">
+              <label>Name<input required name="name" autocomplete="name" placeholder="Your name"></label>
+              <label>Business name<input required name="businessName" autocomplete="organization" placeholder="Venue or business name"></label>
+              <label>Business type
+                <select required name="businessType">
+                  <option value="">Choose one</option>
+                  <option>Restaurant</option>
+                  <option>Bar or pub</option>
+                  <option>Cafe or coffee shop</option>
+                  <option>Food or drink venue</option>
+                  <option>Other local business</option>
+                </select>
+              </label>
+              <label>Preferred contact method
+                <select required name="preferredContactMethod">
+                  <option value="">Choose one</option>
+                  <option>Email</option>
+                  <option>Phone call</option>
+                  <option>Text or WhatsApp</option>
+                </select>
+              </label>
+              <label>Contact detail<input required name="contactDetail" autocomplete="email" placeholder="Email address or phone number"></label>
+              <label class="field-wide">Website or social link<input required name="websiteOrSocialLink" inputmode="url" placeholder="Website, booking page, social profile, or Google Business Profile link"></label>
+              <label class="field-wide">What would you like help with?<textarea required name="helpNeeded" rows="4" placeholder="Example: content across platforms, a menu launch, events, offers, website content, local visibility, or making the venue look more active online."></textarea></label>
             </div>
-            <input type="hidden" name="slot" id="auditSlot" value="">
-            <label>Name<input required name="name" autocomplete="name"></label>
-            <label>Email<input required type="email" name="email" autocomplete="email"></label>
-            <label>Business or venue name<input required name="business"></label>
-            <label>Social platform, local profile, website, or menu link<input required name="link"></label>
-            <label>Main goal<textarea required name="goal" rows="4" placeholder="Example: promote a new menu, get more locals in midweek, improve short-form video, update website content, or share events more clearly"></textarea></label>
+            <fieldset class="slot-fieldset">
+              <legend>Preferred audit time</legend>
+              <p>Pick a preferred time. It is a request, not a confirmed booking slot.</p>
+              <div class="slot-preview" aria-label="Preferred audit time options">
+                <button type="button" data-slot="Tue 10:00">Tue 10:00</button>
+                <button type="button" data-slot="Wed 13:30">Wed 13:30</button>
+                <button type="button" data-slot="Fri 09:30">Fri 09:30</button>
+              </div>
+              <input type="hidden" name="preferredAuditTime" id="auditSlot" value="">
+              <label class="field-wide">Or suggest another time<input name="alternativeAuditTime" placeholder="Example: Monday afternoon or Thursday morning"></label>
+            </fieldset>
             <button class="button" type="submit">Send Audit Request</button>
-            <p class="form-note" id="auditMessage" aria-live="polite">Choose a preferred time or send your details. Taylor In Socials will reply by email with next steps and no-pressure recommendations.</p>
+            <p class="form-note" id="auditMessage" aria-live="polite">Your email app will open with a ready-to-send audit request. If nothing appears, email Taylor directly at taylorkinsella@taylorinsocials.com.</p>
           </form>
         </div>
       </section>
@@ -575,11 +601,27 @@
           </div>
           <form class="booking-form" id="contactForm">
             <h2>Send a quick enquiry</h2>
-            <label>Name<input required name="name"></label>
-            <label>Email<input required type="email" name="email"></label>
-            <label>Message<textarea required rows="5" name="message" placeholder="Tell Taylor what you are looking for: regular content support, menu launch help, event promotion, website content, or something else."></textarea></label>
-            <button class="button" type="submit">Send Message</button>
-            <p class="form-note" id="contactMessage" aria-live="polite"></p>
+            <p class="form-intro">A short note is enough. Taylor will reply with the clearest next step, whether that is an audit, a package recommendation, or a quick answer.</p>
+            <label>Name<input required name="name" autocomplete="name" placeholder="Your name"></label>
+            <label>Email<input required type="email" name="email" autocomplete="email" placeholder="you@example.com"></label>
+            <label>Business or venue name<input name="businessName" autocomplete="organization" placeholder="Optional, but helpful"></label>
+            <label>What are you enquiring about?
+              <select required name="enquiryType">
+                <option value="">Choose one</option>
+                <option>Free audit</option>
+                <option>Regular content support</option>
+                <option>Menu, offer, or event promotion</option>
+                <option>Website or local visibility support</option>
+                <option>Something else</option>
+              </select>
+            </label>
+            <label>Message<textarea required rows="5" name="message" placeholder="Tell Taylor what you need help with, what is happening at the venue, and when you would ideally like support to start."></textarea></label>
+            <div class="form-next-step">
+              <strong>What happens next</strong>
+              <span>Your email draft opens first. Once you send it, Taylor can reply personally with clear next steps.</span>
+            </div>
+            <button class="button" type="submit">Send enquiry by email</button>
+            <p class="form-note" id="contactMessage" aria-live="polite">Your email app will open with a ready-to-send enquiry. If nothing appears, email Taylor directly at taylorkinsella@taylorinsocials.com.</p>
           </form>
         </div>
       </section>
