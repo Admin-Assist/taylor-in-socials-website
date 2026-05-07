@@ -575,6 +575,57 @@ p {
   color: var(--rose-deep);
 }
 
+.who-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  gap: clamp(24px, 5vw, 62px);
+  align-items: start;
+  margin: 74px 0 24px;
+  padding: clamp(26px, 5vw, 42px);
+  background: rgba(255, 253, 248, 0.76);
+  border: 1px solid var(--line);
+  box-shadow: var(--soft-shadow);
+}
+
+.who-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.who-grid article {
+  display: grid;
+  gap: 6px;
+  padding: 18px;
+  background: var(--linen);
+  border: 1px solid var(--line);
+}
+
+.who-grid strong {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  line-height: 1.05;
+}
+
+.who-grid span {
+  color: var(--muted);
+}
+
+.why-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.why-points span {
+  border: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.82);
+  padding: 9px 12px;
+  color: var(--rose-deep);
+  font-size: 13px;
+  font-weight: 900;
+}
+
 .visual-collage-section,
 .campaign-visual-section,
 .web-support-section {
@@ -1507,6 +1558,39 @@ p {
   color: var(--muted);
 }
 
+.audit-value-grid {
+  display: grid;
+  gap: 12px;
+  max-width: 680px;
+  margin-top: 28px;
+}
+
+.audit-value-grid article {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  background: rgba(255, 253, 248, 0.76);
+  border: 1px solid var(--line);
+}
+
+.audit-value-grid strong {
+  color: var(--rose-deep);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.audit-value-grid span,
+.contact-email-panel a {
+  color: var(--muted);
+}
+
+.contact-email-panel a {
+  width: fit-content;
+  border-bottom: 1px solid rgba(117, 106, 100, 0.36);
+  font-weight: 800;
+}
+
 .audit-photo-card {
   display: grid;
   gap: 10px;
@@ -1852,6 +1936,7 @@ textarea:focus {
   .portal-preview,
   .fit-section,
   .campaign-visual-section,
+  .who-section,
   .web-support-section,
   .results-strip {
     grid-template-columns: 1fr;
@@ -2062,6 +2147,7 @@ textarea:focus {
   .process-section,
   .tiers,
   .portal-preview,
+  .who-section,
   .fit-section {
     margin: 56px 0;
   }
