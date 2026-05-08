@@ -322,6 +322,14 @@ p {
   font-weight: 700;
 }
 
+.owner-promise {
+  max-width: 620px;
+  margin-top: 18px;
+  color: var(--charcoal);
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
 .hero-media {
   position: relative;
   display: grid;
@@ -1714,31 +1722,76 @@ p {
 
 .slot-preview {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   padding: 12px;
   background: rgba(246, 239, 232, 0.7);
   border: 1px solid var(--line);
+  border-radius: 8px;
 }
 
 .slot-preview button {
-  min-height: 48px;
+  position: relative;
+  display: grid;
+  gap: 6px;
+  min-height: 112px;
+  align-content: start;
   border: 1px solid var(--line);
+  border-radius: 8px;
   background: rgba(255, 253, 248, 0.92);
   color: var(--charcoal);
   cursor: pointer;
+  padding: 16px;
   font-weight: 800;
+  text-align: left;
 }
 
 .slot-preview button:hover {
   border-color: var(--blush);
   color: var(--blush);
+  box-shadow: var(--soft-shadow);
 }
 
 .slot-preview button.selected {
-  background: var(--charcoal);
-  border-color: var(--charcoal);
-  color: var(--linen);
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(234, 208, 202, 0.38));
+  border-color: rgba(108, 66, 77, 0.58);
+  color: var(--charcoal);
+  box-shadow: 0 0 0 3px rgba(108, 66, 77, 0.12), var(--soft-shadow);
+}
+
+.slot-preview button.selected::after {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  content: "Selected";
+  color: var(--rose-deep);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.availability-day {
+  color: var(--rose-deep);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.slot-preview button strong {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.slot-preview button small,
+.availability-note {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.availability-note {
+  margin: 0;
 }
 
 .audit-mini-panel {
@@ -1787,6 +1840,29 @@ p {
   border-bottom: 1px solid rgba(117, 106, 100, 0.36);
   font-weight: 800;
   overflow-wrap: anywhere;
+}
+
+.social-profile,
+.social-link {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
+  color: var(--rose-deep);
+  font-weight: 900;
+}
+
+.social-icon {
+  display: inline-grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid rgba(189, 119, 120, 0.32);
+  border-radius: 999px;
+  background: rgba(189, 119, 120, 0.1);
+  color: var(--rose-deep);
+  font-size: 11px;
+  font-weight: 900;
 }
 
 .audit-photo-card {
@@ -2090,6 +2166,60 @@ select:focus {
   padding-left: 14px;
 }
 
+.portal-calendar,
+.task-list,
+.request-list {
+  display: grid;
+  gap: 10px;
+}
+
+.portal-calendar {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.calendar-item,
+.task-list div,
+.request-list div,
+.request-dropzone {
+  display: grid;
+  gap: 5px;
+  padding: 14px;
+  background: rgba(246, 239, 232, 0.64);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.calendar-item span,
+.task-list strong,
+.request-list strong {
+  color: var(--rose-deep);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.calendar-item small,
+.task-list span,
+.request-list span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.upload-preview {
+  align-content: start;
+}
+
+.request-dropzone {
+  min-height: 92px;
+  place-items: center;
+  border-style: dashed;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
 .project-chat {
   background: rgba(255, 253, 248, 0.95);
 }
@@ -2169,6 +2299,16 @@ select:focus {
   color: var(--linen);
 }
 
+.site-footer .social-link {
+  color: rgba(255, 250, 243, 0.86);
+}
+
+.site-footer .social-icon {
+  border-color: rgba(255, 250, 243, 0.22);
+  background: rgba(255, 250, 243, 0.08);
+  color: var(--linen);
+}
+
 @media (max-width: 1050px) {
   h1 {
     font-size: 4.8rem;
@@ -2215,6 +2355,10 @@ select:focus {
   }
 
   .portal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portal-calendar {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -2352,6 +2496,7 @@ select:focus {
   .metric-grid,
   .process-list,
   .portal-grid,
+  .portal-calendar,
   .hero-proof,
   .portal-preview-board,
   .results-strip dl,

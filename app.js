@@ -1,5 +1,6 @@
 const pages = [...document.querySelectorAll(".page")];
 const mainNavLinks = [...document.querySelectorAll(".main-nav a")];
+const brandLink = document.querySelector(".brand");
 const navToggle = document.querySelector(".nav-toggle");
 const mainNav = document.querySelector(".main-nav");
 const faqList = document.querySelector("#faqList");
@@ -53,7 +54,7 @@ const pageMeta = {
   ],
   audit: [
     "Free Online Presence Audit | Taylor In Socials",
-    "Book a free social and web presence audit for your restaurant, bar, café, pub, hospitality brand, or local business."
+    "Request a free social and web presence audit for your restaurant, bar, café, pub, hospitality brand, or local business."
   ],
   contact: [
     "Contact | Taylor In Socials",
@@ -92,7 +93,7 @@ const faqs = [
   },
   {
     question: "Which platforms can you support?",
-    answer: "We support all major social platforms. Depending on what the venue needs, support can include Instagram, Facebook, TikTok, Google Business Profile, website/CMS content, short-form content, stories, captions, scheduling support, review prompts, and local engagement ideas."
+    answer: "We support all major social platforms including Instagram, Facebook, TikTok, Google Business Profile and more. Depending on what the venue needs, support can also include website/CMS content, short-form content, stories, captions, scheduling support, review prompts, and local engagement ideas."
   },
   {
     question: "Do we need professional photos first?",
@@ -155,6 +156,26 @@ const contentItems = [
 ];
 
 const contactEmail = "taylorkinsella@taylorinsocials.com";
+
+const calendarPreview = [
+  ["Mon 13", "Menu teaser clip", "Short-form", "Draft"],
+  ["Thu 16", "Quiz night reminder", "Stories", "Approval"],
+  ["Fri 17", "Drinks offer post", "Social + local search", "Ready"],
+  ["Sat 18", "Weekend atmosphere reel", "Short-form", "Planned"]
+];
+
+const nextActions = [
+  ["Approve", "Sunday roast booking copy"],
+  ["Send", "Two clear menu photos"],
+  ["Confirm", "Live music start time"],
+  ["Review", "Weekend offer wording"]
+];
+
+const assetRequests = [
+  ["Menu photo", "Needed for launch post"],
+  ["Terrace image", "Suggested for Friday story"],
+  ["Event details", "Date, time, ticket or booking link"]
+];
 
 const reports = [
   ["Local visibility", "Clearer", "Short-form content shows dishes, drinks, and atmosphere more consistently."],
@@ -270,12 +291,12 @@ function renderDashboard() {
   return `
     <div class="portal-grid">
       <article class="portal-card metric-box">
-        <span>Content planned</span>
+        <span>Content calendar</span>
         <strong>Mapped</strong>
-        <p>Brand content, short-form content, stories, offers, and event promos planned for this month.</p>
+        <p>Brand content, short-form content, stories, offers, and event promos organised for the month.</p>
       </article>
       <article class="portal-card metric-box">
-        <span>Needs your approval</span>
+        <span>Approvals queue</span>
         <strong>${pendingCount}</strong>
         <p>Items Taylor In Socials needs you to check before they are scheduled or published.</p>
       </article>
@@ -289,22 +310,35 @@ function renderDashboard() {
         <strong>Tracked</strong>
         <p>Recent venue offers are reviewed for clicks, replies, and customer actions in the real setup.</p>
       </article>
-      <article class="portal-card wide">
-        <h3>What needs attention</h3>
-        <p class="card-intro">A simple list of what Taylor In Socials needs from the client next.</p>
-        <div class="timeline">
-          <article><strong>Approve Sunday roast booking post</strong><br><span>Confirm booking link and cut-off time</span></article>
-          <article><strong>Send final menu photo</strong><br><span>Needed for the summer menu reel</span></article>
-          <article><strong>Confirm live music time</strong><br><span>Story graphic needs the final start time</span></article>
+      <article class="portal-card full">
+        <h3>Content Calendar Preview</h3>
+        <p class="card-intro">Demo-only monthly view showing how posts, local profile updates, stories, and venue moments can be planned together.</p>
+        <div class="portal-calendar">
+          ${calendarPreview.map((item) => `
+            <div class="calendar-item">
+              <span>${item[0]}</span>
+              <strong>${item[1]}</strong>
+              <small>${item[2]} - ${item[3]}</small>
+            </div>
+          `).join("")}
         </div>
       </article>
       <article class="portal-card wide">
-        <h3>Plain-English results</h3>
-        <p class="card-intro">A quick summary of what is working across the venue's digital presence.</p>
-        ${reports.map((item) => `<p><strong>${item[1]}</strong> ${item[0]}<br><span>${item[2]}</span></p>`).join("")}
+        <h3>Next Actions</h3>
+        <p class="card-intro">A simple task list so venue owners know exactly what Taylor needs next.</p>
+        <div class="task-list">
+          ${nextActions.map((task) => `
+            <div><strong>${task[0]}</strong><span>${task[1]}</span></div>
+          `).join("")}
+        </div>
+      </article>
+      <article class="portal-card wide">
+        <h3>Approvals Queue</h3>
+        <p class="card-intro">Hospitality content waiting for a final check before it moves into the schedule.</p>
+        ${contentRows(true)}
       </article>
       <article class="portal-card full project-chat">
-        <h3>Project Chat Preview</h3>
+        <h3>Messages Preview</h3>
         <p class="card-intro">Demo-only message area for discussing planned posts, changes, questions, or problems. This is not real messaging.</p>
         <div class="chat-list">
           ${projectMessages.map((message) => `
@@ -315,10 +349,22 @@ function renderDashboard() {
           `).join("")}
         </div>
       </article>
-      <article class="portal-card full">
-        <h3>Upcoming content</h3>
+      <article class="portal-card wide">
+        <h3>Upcoming Posts</h3>
         <p class="card-intro">What is planned next across the venue's platforms, local profile, and website content.</p>
         ${contentRows(false)}
+      </article>
+      <article class="portal-card wide upload-preview">
+        <h3>Upload Requests</h3>
+        <p class="card-intro">Preview area for the assets Taylor may need from a hospitality client. This is not a live upload tool.</p>
+        <div class="request-list">
+          ${assetRequests.map((request) => `
+            <div><strong>${request[0]}</strong><span>${request[1]}</span></div>
+          `).join("")}
+        </div>
+        <div class="request-dropzone" aria-label="Upload request preview area">
+          Upload request preview
+        </div>
       </article>
     </div>
   `;
@@ -388,7 +434,7 @@ function renderAccounts() {
       `).join("")}
       <article class="portal-card full">
         <h3>Access note</h3>
-        <p>We support all major social platforms. OAuth or delegated platform access should be used wherever possible. Sensitive passwords should not be stored in this preview or in plain text.</p>
+        <p>We support all major social platforms including Instagram, Facebook, TikTok, Google Business Profile and more. OAuth or delegated platform access should be used wherever possible. Sensitive passwords should not be stored in this preview or in plain text.</p>
       </article>
     </div>
   `;
@@ -602,7 +648,7 @@ function bindForms() {
       slotButton.classList.toggle("selected", slotButton === button);
       slotButton.setAttribute("aria-pressed", String(slotButton === button));
     });
-    document.querySelector("#auditMessage").textContent = `${selectedAuditSlot} preferred. Add your details and Taylor In Socials will reply to confirm availability.`;
+    document.querySelector("#auditMessage").textContent = `${selectedAuditSlot} selected as your preferred audit window. Add your details and Taylor In Socials will reply to confirm a specific time.`;
   });
 
   document.querySelector("#auditForm").addEventListener("submit", (event) => {
@@ -647,6 +693,14 @@ function bindForms() {
 navToggle.addEventListener("click", () => {
   const isOpen = mainNav.classList.toggle("open");
   navToggle.setAttribute("aria-expanded", String(isOpen));
+});
+
+brandLink.addEventListener("click", (event) => {
+  event.preventDefault();
+  mainNav.classList.remove("open");
+  navToggle.setAttribute("aria-expanded", "false");
+  window.location.hash = "home";
+  showPage("home");
 });
 
 portalNav.addEventListener("click", (event) => {

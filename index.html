@@ -50,6 +50,7 @@
             <p class="eyebrow">Digital presence for local hospitality brands</p>
             <h1>Taylor In Socials</h1>
             <p class="hero-lede">Helping restaurants, bars, cafés, pubs, and local venues look more active, polished, and easier to choose online through hospitality content support, venue promotion, and social and web visibility.</p>
+            <p class="owner-promise">We run your socials so you can focus on running your business.</p>
             <div class="button-row">
               <a class="button" href="#audit">Request your free presence audit</a>
               <a class="button ghost" href="#services">Explore services</a>
@@ -330,7 +331,7 @@
             </article>
             <article>
               <span>Platform support</span>
-              <strong>We support all major social platforms</strong>
+              <strong>We support all major social platforms including Instagram, Facebook, TikTok, Google Business Profile and more.</strong>
               <p>Instagram, Facebook, TikTok, Google Business Profile, and website/CMS content can be included where they fit the venue.</p>
             </article>
             <article>
@@ -588,7 +589,7 @@
         <div class="audit-layout">
           <div>
             <p class="eyebrow">Free Audit</p>
-            <h1>Book your free online presence audit.</h1>
+            <h1>Request your free online presence audit.</h1>
             <p>For restaurants, bars, cafés, pubs, hospitality brands, and local businesses. Taylor In Socials will review your digital presence, local visibility, website content, offers, menus, events, and practical next steps.</p>
             <ul class="check-list">
               <li>Digital presence and local profile review</li>
@@ -640,15 +641,33 @@
               <label class="field-wide">What would you like help with?<textarea required name="helpNeeded" rows="4" placeholder="Example: content across platforms, a menu launch, events, offers, website content, local visibility, or making the venue look more active online."></textarea></label>
             </div>
             <fieldset class="slot-fieldset">
-              <legend>Preferred audit time</legend>
-              <p>Pick a preferred time. It is a request, not a confirmed booking slot.</p>
-              <div class="slot-preview" aria-label="Preferred audit time options">
-                <button type="button" data-slot="Tue 10:00">Tue 10:00</button>
-                <button type="button" data-slot="Wed 13:30">Wed 13:30</button>
-                <button type="button" data-slot="Fri 09:30">Fri 09:30</button>
+              <legend>Preferred audit window</legend>
+              <p>Choose the window that usually suits you best. This is a front-end request, not a confirmed booking.</p>
+              <div class="slot-preview availability-grid" aria-label="Preferred audit time options">
+                <button type="button" data-slot="Monday-Tuesday 9:30am-2:30pm" aria-pressed="false">
+                  <span class="availability-day">Monday-Tuesday</span>
+                  <strong>9:30am-2:30pm</strong>
+                  <small>Daytime audit window</small>
+                </button>
+                <button type="button" data-slot="Thursday 9:30am-2:30pm" aria-pressed="false">
+                  <span class="availability-day">Thursday</span>
+                  <strong>9:30am-2:30pm</strong>
+                  <small>Daytime audit window</small>
+                </button>
+                <button type="button" data-slot="Weekday evenings 6:30pm-8:00pm" aria-pressed="false">
+                  <span class="availability-day">Weekday evenings</span>
+                  <strong>6:30pm-8:00pm</strong>
+                  <small>After-service planning slot</small>
+                </button>
+                <button type="button" data-slot="Saturday 9:00am-4:00pm" aria-pressed="false">
+                  <span class="availability-day">Saturday</span>
+                  <strong>9:00am-4:00pm</strong>
+                  <small>Weekend audit window</small>
+                </button>
               </div>
               <input type="hidden" name="preferredAuditTime" id="auditSlot" value="">
-              <label class="field-wide">Or suggest another time<input name="alternativeAuditTime" placeholder="Example: Monday afternoon or Thursday morning"></label>
+              <p class="availability-note">Taylor will reply to confirm a specific time by email.</p>
+              <label class="field-wide">Or suggest another time<input name="alternativeAuditTime" placeholder="Example: Wednesday morning or Friday after 6pm"></label>
             </fieldset>
             <button class="button" type="submit">Send Audit Request</button>
             <p class="form-note" id="auditMessage" aria-live="polite">Your email app will open with a ready-to-send audit request. If nothing appears, email Taylor directly at taylorkinsella@taylorinsocials.com.</p>
@@ -664,11 +683,18 @@
             <p>For audit requests, retainer questions, menu launches, event promos, content planning, or general enquiries, send a short message and Taylor In Socials will reply with clear next steps.</p>
             <div class="contact-panel">
               <strong>Best place to start</strong>
-              <span>Book the free presence audit if you want practical content recommendations before choosing a retainer.</span>
+              <span>Request the free presence audit if you want practical content recommendations before choosing a retainer.</span>
             </div>
             <div class="contact-panel contact-email-panel">
               <strong>Email Taylor directly</strong>
               <a href="mailto:taylorkinsella@taylorinsocials.com">taylorkinsella@taylorinsocials.com</a>
+            </div>
+            <div class="contact-panel">
+              <strong>Instagram</strong>
+              <a class="social-profile" href="https://www.instagram.com/taylorinsocials/" target="_blank" rel="noopener" aria-label="Open Taylor In Socials on Instagram">
+                <span class="social-icon" aria-hidden="true">IG</span>
+                <span>@taylorinsocials</span>
+              </a>
             </div>
           </div>
           <form class="booking-form" id="contactForm">
@@ -775,7 +801,10 @@
         <a href="#contact">Contact</a>
         <a href="#audit">Free Audit</a>
         <a href="#login">Client Login</a>
-        <a href="https://www.instagram.com/taylorinsocials/" target="_blank" rel="noopener">@taylorinsocials</a>
+        <a class="social-link" href="https://www.instagram.com/taylorinsocials/" target="_blank" rel="noopener" aria-label="Open Taylor In Socials on Instagram">
+          <span class="social-icon" aria-hidden="true">IG</span>
+          <span>@taylorinsocials</span>
+        </a>
       </nav>
     </footer>
 
