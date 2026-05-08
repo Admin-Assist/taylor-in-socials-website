@@ -1723,47 +1723,93 @@ p {
 .slot-preview {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  padding: 12px;
-  background: rgba(246, 239, 232, 0.7);
+  gap: 14px;
+  padding: 14px;
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.92), rgba(246, 239, 232, 0.68));
   border: 1px solid var(--line);
   border-radius: 8px;
 }
 
-.slot-preview button {
+.slot-window {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  background: rgba(255, 253, 248, 0.78);
+  border: 1px solid rgba(117, 106, 100, 0.14);
+  border-radius: 8px;
+  box-shadow: 0 14px 34px rgba(48, 38, 33, 0.06);
+}
+
+.slot-window-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+}
+
+.slot-window-heading strong {
+  color: var(--charcoal);
+  font-size: 15px;
+  font-weight: 900;
+  text-align: right;
+}
+
+.slot-button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.slot-button-grid button {
   position: relative;
   display: grid;
-  gap: 6px;
-  min-height: 112px;
-  align-content: start;
+  gap: 5px;
+  min-height: 74px;
+  align-content: center;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(255, 253, 248, 0.92);
   color: var(--charcoal);
   cursor: pointer;
-  padding: 16px;
+  padding: 12px;
   font-weight: 800;
-  text-align: left;
+  text-align: center;
 }
 
-.slot-preview button:hover {
+.slot-button-grid button:hover {
   border-color: var(--blush);
   color: var(--blush);
   box-shadow: var(--soft-shadow);
 }
 
-.slot-preview button.selected {
+.slot-button-grid button.selected {
   background: linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(234, 208, 202, 0.38));
   border-color: rgba(108, 66, 77, 0.58);
   color: var(--charcoal);
   box-shadow: 0 0 0 3px rgba(108, 66, 77, 0.12), var(--soft-shadow);
 }
 
-.slot-preview button.selected::after {
+.slot-button-grid button.selected::after {
   position: absolute;
-  right: 12px;
-  bottom: 12px;
+  right: 8px;
+  top: 8px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--rose-deep);
   content: "Selected";
+  overflow: hidden;
+  text-indent: -999px;
+}
+
+.slot-button-grid button span {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.slot-button-grid button small {
   color: var(--rose-deep);
   font-size: 11px;
   font-weight: 900;
@@ -1777,13 +1823,6 @@ p {
   text-transform: uppercase;
 }
 
-.slot-preview button strong {
-  font-family: var(--serif);
-  font-size: 1.45rem;
-  line-height: 1;
-}
-
-.slot-preview button small,
 .availability-note {
   color: var(--muted);
   font-size: 12px;
@@ -1842,27 +1881,33 @@ p {
   overflow-wrap: anywhere;
 }
 
-.social-profile,
-.social-link {
-  display: inline-flex;
-  width: fit-content;
-  align-items: center;
-  gap: 8px;
-  color: var(--rose-deep);
-  font-weight: 900;
-}
-
-.social-icon {
+.social-icon-link {
   display: inline-grid;
-  width: 30px;
-  height: 30px;
+  width: 42px;
+  height: 42px;
   place-items: center;
   border: 1px solid rgba(189, 119, 120, 0.32);
   border-radius: 999px;
   background: rgba(189, 119, 120, 0.1);
   color: var(--rose-deep);
-  font-size: 11px;
-  font-weight: 900;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.social-icon-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(108, 66, 77, 0.48);
+  background: rgba(189, 119, 120, 0.16);
+  box-shadow: var(--soft-shadow);
+}
+
+.instagram-mark {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
 }
 
 .audit-photo-card {
@@ -1970,6 +2015,85 @@ select:focus {
   display: grid;
   gap: 16px;
   margin-top: 24px;
+}
+
+.portal-info-page {
+  display: grid;
+  gap: 42px;
+}
+
+.portal-info-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+  gap: clamp(28px, 5vw, 70px);
+  align-items: center;
+}
+
+.portal-info-hero p {
+  max-width: 680px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.portal-info-card {
+  display: grid;
+  gap: 16px;
+  padding: clamp(24px, 4vw, 42px);
+  background: linear-gradient(135deg, #26211f 0%, #4d3138 100%);
+  border: 1px solid rgba(36, 33, 31, 0.24);
+  border-radius: 8px;
+  color: var(--linen);
+  box-shadow: var(--shadow);
+}
+
+.portal-info-card span,
+.portal-feature-grid article span {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.portal-info-card strong {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 0.95;
+}
+
+.portal-info-card p {
+  color: rgba(255, 250, 243, 0.7);
+}
+
+.portal-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.portal-feature-grid article,
+.portal-info-band {
+  display: grid;
+  gap: 10px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--soft-shadow);
+}
+
+.portal-feature-grid h2 {
+  font-size: 1.35rem;
+}
+
+.portal-feature-grid p,
+.portal-info-band p {
+  color: var(--muted);
+}
+
+.portal-info-band {
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  padding: clamp(24px, 4vw, 36px);
 }
 
 .portal-page {
@@ -2299,14 +2423,15 @@ select:focus {
   color: var(--linen);
 }
 
-.site-footer .social-link {
-  color: rgba(255, 250, 243, 0.86);
-}
-
-.site-footer .social-icon {
+.site-footer .social-icon-link {
   border-color: rgba(255, 250, 243, 0.22);
   background: rgba(255, 250, 243, 0.08);
   color: var(--linen);
+}
+
+.site-footer .social-icon-link:hover {
+  border-color: rgba(255, 250, 243, 0.44);
+  background: rgba(255, 250, 243, 0.14);
 }
 
 @media (max-width: 1050px) {
@@ -2333,7 +2458,9 @@ select:focus {
   .campaign-visual-section,
   .who-section,
   .web-support-section,
-  .results-strip {
+  .results-strip,
+  .portal-info-hero,
+  .portal-info-band {
     grid-template-columns: 1fr;
   }
 
@@ -2350,7 +2477,8 @@ select:focus {
   .tier-grid,
   .portfolio-examples,
   .metric-grid,
-  .process-list {
+  .process-list,
+  .portal-feature-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -2497,6 +2625,7 @@ select:focus {
   .process-list,
   .portal-grid,
   .portal-calendar,
+  .portal-feature-grid,
   .hero-proof,
   .portal-preview-board,
   .results-strip dl,
@@ -2559,6 +2688,7 @@ select:focus {
   .process-section,
   .tiers,
   .portal-preview,
+  .portal-info-page,
   .who-section,
   .fit-section {
     margin: 56px 0;

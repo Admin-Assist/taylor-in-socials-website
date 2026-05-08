@@ -69,8 +69,8 @@ const pageMeta = {
     "Terms information for Taylor In Socials services, retainers, approvals, portal use, and third-party platforms."
   ],
   login: [
-    "Client Login | Taylor In Socials",
-    "Private client portal access for Taylor In Socials plans, approvals, linked accounts, reports, and billing status."
+    "Client Portal | Taylor In Socials",
+    "Client portal information for Taylor In Socials content calendars, approvals, messages, file requests, reporting, and hospitality workflows."
   ],
   portal: [
     "Client Portal | Taylor In Socials",
@@ -105,11 +105,11 @@ const faqs = [
   },
   {
     question: "How do approvals work?",
-    answer: "In this preview, clients can review planned posts, leave comments, approve content, or request changes before anything is scheduled. A real portal would need secure production setup first."
+    answer: "The portal is being developed so clients can review planned posts, leave comments, approve content, and request changes before anything is scheduled. Real access will only be introduced with secure production setup."
   },
   {
     question: "Is the client portal ready for real client data?",
-    answer: "Not yet. The portal in this launch build is a preview of the client experience. Real client data should only be added after authentication, permissions, secure storage, and production workflows are built."
+    answer: "Not yet. The public site explains what the portal will do, but real client data should only be added after authentication, permissions, secure storage, and production workflows are built."
   }
 ];
 
@@ -677,12 +677,15 @@ function bindForms() {
     event.currentTarget.reset();
   });
 
-  document.querySelector("#loginForm").addEventListener("submit", (event) => {
-    event.preventDefault();
-    isLoggedIn = true;
-    activePortalView = "dashboard";
-    window.location.hash = "portal";
-  });
+  const loginForm = document.querySelector("#loginForm");
+  if (loginForm) {
+    loginForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      isLoggedIn = true;
+      activePortalView = "dashboard";
+      window.location.hash = "portal";
+    });
+  }
 
   document.querySelector("#logoutButton").addEventListener("click", () => {
     isLoggedIn = false;

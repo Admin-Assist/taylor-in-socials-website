@@ -38,7 +38,7 @@
         <a href="#about">About</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
-        <a href="#login">Client Login</a>
+        <a href="#login">Client Portal</a>
         <a class="button small" href="#audit">Free Audit</a>
       </nav>
     </header>
@@ -182,7 +182,7 @@
               <span>03</span>
               <h3>Reviews, search, and local trust</h3>
               <p>Content ideas, local search profile support, and reputation prompts that help your venue look active, approachable, and trusted by people nearby.</p>
-              <a href="#login">Preview portal</a>
+              <a href="#login">Client portal</a>
             </article>
           </div>
         </section>
@@ -222,9 +222,9 @@
         <section class="portal-preview">
           <div>
             <p class="eyebrow">Client experience</p>
-            <h2>A simple preview of how clients can check what is planned.</h2>
-            <p>Clients can see upcoming posts, short-form video ideas, offers, menus, event promos, web updates, approval notes, and plain-English next steps without chasing everything through scattered messages.</p>
-            <a class="button ghost" href="#login">Preview Client Portal</a>
+            <h2>A calm client portal experience is being built behind the scenes.</h2>
+            <p>The portal will help clients review upcoming content, approval notes, file requests, messages, and reporting in one organised place instead of chasing everything through scattered messages.</p>
+            <a class="button ghost" href="#login">Learn about the portal</a>
           </div>
           <div class="portal-preview-board" aria-label="Client portal preview">
             <div><span>Content to approve</span><strong>3</strong></div>
@@ -641,29 +641,57 @@
               <label class="field-wide">What would you like help with?<textarea required name="helpNeeded" rows="4" placeholder="Example: content across platforms, a menu launch, events, offers, website content, local visibility, or making the venue look more active online."></textarea></label>
             </div>
             <fieldset class="slot-fieldset">
-              <legend>Preferred audit window</legend>
-              <p>Choose the window that usually suits you best. This is a front-end request, not a confirmed booking.</p>
-              <div class="slot-preview availability-grid" aria-label="Preferred audit time options">
-                <button type="button" data-slot="Monday-Tuesday 9:30am-2:30pm" aria-pressed="false">
-                  <span class="availability-day">Monday-Tuesday</span>
-                  <strong>9:30am-2:30pm</strong>
-                  <small>Daytime audit window</small>
-                </button>
-                <button type="button" data-slot="Thursday 9:30am-2:30pm" aria-pressed="false">
-                  <span class="availability-day">Thursday</span>
-                  <strong>9:30am-2:30pm</strong>
-                  <small>Daytime audit window</small>
-                </button>
-                <button type="button" data-slot="Weekday evenings 6:30pm-8:00pm" aria-pressed="false">
-                  <span class="availability-day">Weekday evenings</span>
-                  <strong>6:30pm-8:00pm</strong>
-                  <small>After-service planning slot</small>
-                </button>
-                <button type="button" data-slot="Saturday 9:00am-4:00pm" aria-pressed="false">
-                  <span class="availability-day">Saturday</span>
-                  <strong>9:00am-4:00pm</strong>
-                  <small>Weekend audit window</small>
-                </button>
+              <legend>Preferred audit slot</legend>
+              <p>Choose a 30-minute preferred slot. This is a request only until a real calendar booking system is connected.</p>
+              <div class="slot-preview availability-grid" aria-label="Preferred audit slot options">
+                <section class="slot-window" aria-labelledby="slot-weekday">
+                  <div class="slot-window-heading">
+                    <span class="availability-day" id="slot-weekday">Monday-Tuesday</span>
+                    <strong>9:30am-2:30pm</strong>
+                  </div>
+                  <div class="slot-button-grid">
+                    <button type="button" data-slot="Monday-Tuesday 9:30am" aria-pressed="false"><span>9:30am</span><small>Popular</small></button>
+                    <button type="button" data-slot="Monday-Tuesday 10:00am" aria-pressed="false"><span>10:00am</span><small>Available</small></button>
+                    <button type="button" data-slot="Monday-Tuesday 11:30am" aria-pressed="false"><span>11:30am</span><small>Requested often</small></button>
+                    <button type="button" data-slot="Monday-Tuesday 2:00pm" aria-pressed="false"><span>2:00pm</span><small>Limited</small></button>
+                  </div>
+                </section>
+                <section class="slot-window" aria-labelledby="slot-thursday">
+                  <div class="slot-window-heading">
+                    <span class="availability-day" id="slot-thursday">Thursday</span>
+                    <strong>9:30am-2:30pm</strong>
+                  </div>
+                  <div class="slot-button-grid">
+                    <button type="button" data-slot="Thursday 9:30am" aria-pressed="false"><span>9:30am</span><small>Available</small></button>
+                    <button type="button" data-slot="Thursday 10:30am" aria-pressed="false"><span>10:30am</span><small>Popular</small></button>
+                    <button type="button" data-slot="Thursday 12:30pm" aria-pressed="false"><span>12:30pm</span><small>Available</small></button>
+                    <button type="button" data-slot="Thursday 2:00pm" aria-pressed="false"><span>2:00pm</span><small>Limited</small></button>
+                  </div>
+                </section>
+                <section class="slot-window" aria-labelledby="slot-evening">
+                  <div class="slot-window-heading">
+                    <span class="availability-day" id="slot-evening">Weekday evenings</span>
+                    <strong>6:30pm-8:00pm</strong>
+                  </div>
+                  <div class="slot-button-grid">
+                    <button type="button" data-slot="Weekday evening 6:30pm" aria-pressed="false"><span>6:30pm</span><small>Popular</small></button>
+                    <button type="button" data-slot="Weekday evening 7:00pm" aria-pressed="false"><span>7:00pm</span><small>Requested often</small></button>
+                    <button type="button" data-slot="Weekday evening 7:30pm" aria-pressed="false"><span>7:30pm</span><small>Available</small></button>
+                    <button type="button" data-slot="Weekday evening 8:00pm" aria-pressed="false"><span>8:00pm</span><small>Limited</small></button>
+                  </div>
+                </section>
+                <section class="slot-window" aria-labelledby="slot-saturday">
+                  <div class="slot-window-heading">
+                    <span class="availability-day" id="slot-saturday">Saturday</span>
+                    <strong>9:00am-4:00pm</strong>
+                  </div>
+                  <div class="slot-button-grid">
+                    <button type="button" data-slot="Saturday 9:00am" aria-pressed="false"><span>9:00am</span><small>Available</small></button>
+                    <button type="button" data-slot="Saturday 10:30am" aria-pressed="false"><span>10:30am</span><small>Popular</small></button>
+                    <button type="button" data-slot="Saturday 1:00pm" aria-pressed="false"><span>1:00pm</span><small>Requested often</small></button>
+                    <button type="button" data-slot="Saturday 3:30pm" aria-pressed="false"><span>3:30pm</span><small>Limited</small></button>
+                  </div>
+                </section>
               </div>
               <input type="hidden" name="preferredAuditTime" id="auditSlot" value="">
               <p class="availability-note">Taylor will reply to confirm a specific time by email.</p>
@@ -691,9 +719,12 @@
             </div>
             <div class="contact-panel">
               <strong>Instagram</strong>
-              <a class="social-profile" href="https://www.instagram.com/taylorinsocials/" target="_blank" rel="noopener" aria-label="Open Taylor In Socials on Instagram">
-                <span class="social-icon" aria-hidden="true">IG</span>
-                <span>@taylorinsocials</span>
+              <a class="social-icon-link" href="https://www.instagram.com/taylorinsocials/" target="_blank" rel="noopener" aria-label="Open Taylor In Socials on Instagram">
+                <svg class="instagram-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <rect x="4" y="4" width="16" height="16" rx="5"></rect>
+                  <circle cx="12" cy="12" r="3.5"></circle>
+                  <circle cx="16.8" cy="7.2" r="0.9"></circle>
+                </svg>
               </a>
             </div>
           </div>
@@ -725,21 +756,62 @@
       </section>
 
       <section class="page" id="page-login" data-page="login">
-        <div class="login-shell">
-          <div class="login-panel">
-            <img class="portal-logo-large" src="assets/taylor/taylor-in-socials-logo.png" alt="Taylor In Socials logo">
-            <p class="eyebrow">Client Portal</p>
-            <h1>Private access for plans, approvals, and reports.</h1>
-            <div class="portal-warning">
-              This portal is a preview for launch and not yet for real client data.
+        <div class="portal-info-page">
+          <div class="portal-info-hero">
+            <div>
+              <p class="eyebrow">Client Portal</p>
+              <h1>A simpler way for busy venue owners to review content.</h1>
+              <p>The Taylor In Socials client portal is being developed to bring planning, approvals, messages, file requests, and reporting into one calm place for hospitality clients.</p>
+              <div class="button-row">
+                <a class="button" href="#audit">Request your free presence audit</a>
+                <a class="button ghost" href="#contact">Ask about retainers</a>
+              </div>
             </div>
-            <form id="loginForm">
-              <label>Email<input required type="email" value="client@taylorinsocials.com"></label>
-              <label>Password<input required type="password" value="demoportal"></label>
-              <button class="button" type="submit">Log In</button>
-            </form>
-            <p class="form-note">Preview credentials are pre-filled for this demo.</p>
+            <div class="portal-info-card" aria-label="Client portal coming soon">
+              <span>Coming soon</span>
+              <strong>Content, approvals, messages, and reporting in one place.</strong>
+              <p>No public demo login is available. Real access will only be introduced when secure production workflows are ready.</p>
+            </div>
           </div>
+          <div class="portal-feature-grid">
+            <article>
+              <span>01</span>
+              <h2>Content Calendar</h2>
+              <p>See upcoming posts, short-form content, offers, menus, events, website updates, and local profile activity before they go live.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h2>Approvals</h2>
+              <p>Check captions, dates, booking links, offer details, menu names, and campaign notes before content is scheduled.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h2>Messages</h2>
+              <p>Keep questions, changes, and content decisions in one organised space instead of spreading them across busy inboxes.</p>
+            </article>
+            <article>
+              <span>04</span>
+              <h2>Files and Requests</h2>
+              <p>Track the photos, menu details, event information, and venue updates Taylor needs to keep content moving smoothly.</p>
+            </article>
+            <article>
+              <span>05</span>
+              <h2>Reporting</h2>
+              <p>Review plain-English notes on what is working, what needs attention, and what should be promoted next.</p>
+            </article>
+            <article>
+              <span>06</span>
+              <h2>Built for Hospitality</h2>
+              <p>Designed around the realities of restaurants, bars, cafes, pubs, venues, quieter weekdays, seasonal offers, and launch weekends.</p>
+            </article>
+          </div>
+          <section class="portal-info-band">
+            <div>
+              <p class="eyebrow">Why it helps</p>
+              <h2>Less chasing. More clarity. Better content decisions.</h2>
+            </div>
+            <p>When the secure version is ready, the portal will help clients understand what is planned, what needs approval, what Taylor needs next, and how content is supporting the venue's wider online presence.</p>
+          </section>
         </div>
       </section>
 
@@ -800,10 +872,13 @@
         <a href="#terms">Terms</a>
         <a href="#contact">Contact</a>
         <a href="#audit">Free Audit</a>
-        <a href="#login">Client Login</a>
-        <a class="social-link" href="https://www.instagram.com/taylorinsocials/" target="_blank" rel="noopener" aria-label="Open Taylor In Socials on Instagram">
-          <span class="social-icon" aria-hidden="true">IG</span>
-          <span>@taylorinsocials</span>
+        <a href="#login">Client Portal</a>
+        <a class="social-icon-link footer-social" href="https://www.instagram.com/taylorinsocials/" target="_blank" rel="noopener" aria-label="Open Taylor In Socials on Instagram">
+          <svg class="instagram-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <rect x="4" y="4" width="16" height="16" rx="5"></rect>
+            <circle cx="12" cy="12" r="3.5"></circle>
+            <circle cx="16.8" cy="7.2" r="0.9"></circle>
+          </svg>
         </a>
       </nav>
     </footer>
